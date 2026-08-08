@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyev-rabbitmq"
+version = "0.1.0"
+description = "RabbitMQ transport plugin for pyev"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["pyev>=0.1.0", "aio-pika>=9.4"]
+
+[project.entry-points."pyev.engines"]
+rabbitmq = "pyev.engines.rabbitmq:RabbitMQEngine"

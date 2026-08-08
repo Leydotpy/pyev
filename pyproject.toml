@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyev"
+version = "0.0.1"
+description = "A typed, asynchronous, transport-agnostic message broker for Python applications"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "pyev contributors" }]
+keywords = ["asyncio", "events", "message-broker", "pubsub", "rpc"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Framework :: AsyncIO",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+redis = ["redis>=5.0"]
+rabbitmq = ["aio-pika>=9.4"]
+kafka = ["aiokafka>=0.12"]
+django = ["Django>=5.0"]
+msgpack = ["msgpack>=1.0"]
+yaml = ["PyYAML>=6.0"]
+otel = ["opentelemetry-api>=1.24"]
+dev = [
+  "mypy>=1.11",
+  "pytest>=8.2",
+  "pytest-asyncio>=0.24",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+]
+all = [
+  "redis>=5.0",
+  "aio-pika>=9.4",
+  "aiokafka>=0.12",
+  "Django>=5.0",
+  "msgpack>=1.0",
+  "PyYAML>=6.0",
+  "opentelemetry-api>=1.24",
+]
+
+[project.urls]
+Documentation = "https://github.com/pyev-dev/pyev#readme"
+Issues = "https://github.com/pyev-dev/pyev/issues"
+Source = "https://github.com/pyev-dev/pyev"
+
+[project.entry-points."pyev.engines"]
+local = "pyev.engines.local:LocalEngine"
+memory = "pyev.engines.memory:MemoryEngine"
+redis = "pyev.engines.redis:RedisEngine"
+rabbitmq = "pyev.engines.rabbitmq:RabbitMQEngine"
+kafka = "pyev.engines.kafka:KafkaEngine"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pyev = ["py.typed"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers -ra"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+  "integration: requires an external service",
+  "performance: reproducible performance baseline",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["pyev"]
+# Optional transport/framework adapters are covered by their focused and
+# service-backed matrices; the dependency-free CI gate measures the core.
+omit = [
+  "src/pyev/engines/redis.py",
+  "src/pyev/engines/rabbitmq.py",
+  "src/pyev/engines/kafka.py",
+  "src/pyev/integrations/django/*",
+  "src/pyev/integrations/celery.py",
+  "src/pyev/serialization/msgpack.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+extend-exclude = ["AGENTS.md", "docs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "C4", "DTZ", "RUF"]
+ignore = [
+  "ASYNC109", # Public broker APIs intentionally expose portable timeout values.
+  "B008",
+  "UP040",    # TypeAlias remains clearer for recursive aliases under strict mypy.
+  "UP046",    # Generic syntax stays compatible with current type-checker/tooling support.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["DTZ001", "S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["pyev"]
+warn_unreachable = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+  "pyev.engines.kafka",
+  "pyev.engines.rabbitmq",
+  "pyev.integrations.celery",
+  "pyev.integrations.django.*",
+]
+disable_error_code = ["import-not-found", "import-untyped", "misc", "untyped-decorator"]

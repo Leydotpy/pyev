@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyev-kafka"
+version = "0.1.0"
+description = "Apache Kafka transport plugin for pyev"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["pyev>=0.1.0", "aiokafka>=0.12"]
+
+[project.entry-points."pyev.engines"]
+kafka = "pyev.engines.kafka:KafkaEngine"
