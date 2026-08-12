@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import pytest
 
-from pymq.exceptions import CircuitOpenError
-from pymq.reliability import CircuitBreaker, CircuitBreakerConfig, CircuitState
-from pymq.testing import DeterministicClock
+from broka.exceptions import CircuitOpenError
+from broka.reliability import CircuitBreaker, CircuitBreakerConfig, CircuitState
+from broka.testing import DeterministicClock
 
 
 @pytest.mark.asyncio

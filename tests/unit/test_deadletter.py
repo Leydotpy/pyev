@@ -4,7 +4,7 @@ from datetime import timedelta
 
 import pytest
 
-from pymq.deadletter import (
+from broka.deadletter import (
     DeadLetterContext,
     DeadLetterFilter,
     DeadLetterManager,
@@ -14,9 +14,9 @@ from pymq.deadletter import (
     ReplayManager,
     ReplayOutcome,
 )
-from pymq.envelope import Envelope
-from pymq.exceptions import DeadLetterError
-from pymq.observability import REDACTED
+from broka.envelope import Envelope
+from broka.exceptions import DeadLetterError
+from broka.observability import REDACTED
 
 
 def make_envelope(*, event_type: str = "orders.created") -> Envelope:

@@ -1,11 +1,11 @@
 """Dependency-injection identity regressions for the broker facade."""
 
-from pymq.broker import Broker
-from pymq.event import EventRegistry
-from pymq.middleware import InboundMiddlewarePipeline, OutboundMiddlewarePipeline
-from pymq.registry import EngineRegistry
-from pymq.routing import Router
-from pymq.serialization import SerializerRegistry
+from broka.broker import Broker
+from broka.event import EventRegistry
+from broka.middleware import InboundMiddlewarePipeline, OutboundMiddlewarePipeline
+from broka.registry import EngineRegistry
+from broka.routing import Router
+from broka.serialization import SerializerRegistry
 
 
 def test_broker_preserves_explicitly_injected_empty_registries_and_pipelines() -> None:

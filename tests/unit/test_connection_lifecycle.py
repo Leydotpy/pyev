@@ -4,15 +4,15 @@ import asyncio
 
 import pytest
 
-from pymq.exceptions import LifecycleError
-from pymq.lifecycle import (
+from broka.exceptions import LifecycleError
+from broka.lifecycle import (
     LifecycleManager,
     LifecycleState,
     RestartPolicy,
     SupervisedTaskState,
     TaskSupervisor,
 )
-from pymq.reliability import FixedBackoff
+from broka.reliability import FixedBackoff
 
 
 @pytest.mark.asyncio

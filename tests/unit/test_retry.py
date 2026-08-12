@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pymq.exceptions import RetryExhaustedError
-from pymq.reliability import (
+from broka.exceptions import RetryExhaustedError
+from broka.reliability import (
     FixedBackoff,
     RetryBudget,
     RetryContext,
@@ -13,7 +13,7 @@ from pymq.reliability import (
     RetryPolicy,
     TypeExceptionClassifier,
 )
-from pymq.testing import DeterministicRetryScheduler
+from broka.testing import DeterministicRetryScheduler
 
 
 @pytest.mark.asyncio

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from pymq.events import CriticalListenerError, InternalEventEmitter
-from pymq.observability import (
+from broka.events import CriticalListenerError, InternalEventEmitter
+from broka.observability import (
     REDACTED,
     ComponentHealth,
     HealthRegistry,

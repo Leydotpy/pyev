@@ -6,15 +6,15 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pymq.connection import ConnectionManager, ConnectionState
-from pymq.engines.base import EngineHealth
-from pymq.events.internal import (
+from broka.connection import ConnectionManager, ConnectionState
+from broka.engines.base import EngineHealth
+from broka.events.internal import (
     InternalEventEmitter,
     OperationalEvent,
     OperationalEventName,
 )
-from pymq.exceptions import BrokerConnectionError, LifecycleError
-from pymq.lifecycle import (
+from broka.exceptions import BrokerConnectionError, LifecycleError
+from broka.lifecycle import (
     LifecycleManager,
     LifecycleState,
     RestartPolicy,
@@ -22,8 +22,8 @@ from pymq.lifecycle import (
     TaskFailure,
     TaskSupervisor,
 )
-from pymq.reliability import FixedBackoff, RetryManager, RetryPolicy
-from pymq.testing import DeterministicRetryScheduler, FakeEngine
+from broka.reliability import FixedBackoff, RetryManager, RetryPolicy
+from broka.testing import DeterministicRetryScheduler, FakeEngine
 
 
 class RecordingEmitter:

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from pymq.reliability.backoff import (
+from broka.reliability.backoff import (
     DecorrelatedJitterBackoff,
     EqualJitterBackoff,
     ExponentialBackoff,

@@ -72,12 +72,12 @@ Correlation and causation IDs remain separate envelope fields; trace context doe
 either.
 
 ```python
-from pymq.observability import InMemoryTracer, SpanKind, TracePropagator
+from broka.observability import InMemoryTracer, SpanKind, TracePropagator
 
 tracer = InMemoryTracer()
 async with tracer.start_as_current_span("publish", kind=SpanKind.PRODUCER) as span:
-    carrier: dict[str, str] = {}
-    TracePropagator().inject(carrier, span.context)
+  carrier: dict[str, str] = {}
+  TracePropagator().inject(carrier, span.context)
 ```
 
 `NoOpTracer` preserves the callable contract without export. `InMemoryTracer` records completed

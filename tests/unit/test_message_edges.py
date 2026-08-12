@@ -13,8 +13,8 @@ from uuid import UUID
 
 import pytest
 
-from pymq.exceptions import MessageValidationError
-from pymq.message import (
+from broka.exceptions import MessageValidationError
+from broka.message import (
     EVENT_NAME_ATTRIBUTE,
     EVENT_VERSION_ATTRIBUTE,
     is_message,

@@ -150,8 +150,8 @@ processing, and the current broker does not expose a coordinated Kafka transacti
 Implement the minimum `BaseEngine` surface and publish a lazy entry point:
 
 ```python
-from pymq.capabilities import Capability, CapabilitySet
-from pymq.engines.base import BaseEngine
+from broka.capabilities import Capability, CapabilitySet
+from broka.engines.base import BaseEngine
 
 
 class NatsEngine(BaseEngine):

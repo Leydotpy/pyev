@@ -16,33 +16,33 @@ from unittest.mock import patch
 
 import pytest
 
-from pymq.capabilities import Capability
-from pymq.engines.base import (
+from broka.capabilities import Capability
+from broka.engines.base import (
     Availability,
     EngineIncomingMessage,
     EnginePublishContext,
 )
-from pymq.engines.kafka import (
+from broka.engines.kafka import (
     KafkaEngine,
     _KafkaAcknowledgement,
     _KafkaConsumer,
     _topic_pattern,
 )
-from pymq.engines.rabbitmq import (
+from broka.engines.rabbitmq import (
     RabbitMQEngine,
     _amqp_pattern,
     _rabbit_confirmation_accepted,
     _RabbitAcknowledgement,
     _RabbitConsumer,
 )
-from pymq.engines.redis import (
+from broka.engines.redis import (
     RedisEngine,
     _decode_stream_entry,
     _parse_xautoclaim,
     _PubSubAcknowledgement,
     _StreamsAcknowledgement,
 )
-from pymq.exceptions import PublishError, UnsupportedCapabilityError
+from broka.exceptions import PublishError, UnsupportedCapabilityError
 
 
 def test_optional_engine_modules_do_not_import_client_libraries() -> None:

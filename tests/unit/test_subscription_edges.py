@@ -7,9 +7,9 @@ from typing import Any
 
 import pytest
 
-from pymq.delivery import Delivery
-from pymq.exceptions import InvalidStateTransitionError, LifecycleError
-from pymq.subscription import (
+from broka.delivery import Delivery
+from broka.exceptions import InvalidStateTransitionError, LifecycleError
+from broka.subscription import (
     Subscription,
     SubscriptionOptions,
     SubscriptionState,

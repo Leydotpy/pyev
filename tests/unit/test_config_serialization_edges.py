@@ -9,9 +9,9 @@ from typing import Any, ClassVar
 
 import pytest
 
-import pymq.config as config_module
-from pymq.broker import Broker, BrokerState
-from pymq.config import (
+import broka.config as config_module
+from broka.broker import Broker, BrokerState
+from broka.config import (
     BrokerConfig,
     ConfigLoader,
     FrozenMapping,
@@ -24,32 +24,32 @@ from pymq.config import (
     redact,
     reveal_secret,
 )
-from pymq.exceptions import (
+from broka.exceptions import (
     ConfigurationError,
     DuplicateRegistrationError,
     PluginLoadError,
     RegistryError,
     SerializationError,
 )
-from pymq.factory import BrokerFactory
-from pymq.observability.logging import StructuredLogAdapter, get_logger
-from pymq.observability.redaction import (
+from broka.factory import BrokerFactory
+from broka.observability.logging import StructuredLogAdapter, get_logger
+from broka.observability.redaction import (
     REDACTED,
     is_sensitive_key,
     redact_mapping,
     redact_text,
     redact_value,
 )
-from pymq.plugins import (
+from broka.plugins import (
     PluginGroups,
     PluginRegistry,
     discover_plugins,
     discover_serializer_plugins,
     register_discovered_plugins,
 )
-from pymq.routing import Router
-from pymq.serialization import DeserializationContext, SerializationContext
-from pymq.serialization.registry import SerializerRegistry
+from broka.routing import Router
+from broka.serialization import DeserializationContext, SerializationContext
+from broka.serialization.registry import SerializerRegistry
 
 
 class _Serializer:

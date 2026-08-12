@@ -10,21 +10,21 @@ workers, Django management commands, or a separate web process.
 `broker_lifespan()` is an async context manager accepted by frameworks with a lifespan hook:
 
 ```python
-from pymq import Broker
-from pymq.integrations.asgi import broker_lifespan
+from broka import Broker
+from broka.integrations.asgi import broker_lifespan
 
 broker = Broker.from_config({"engine": "redis"})
 
 
 async def application_lifespan():
-    async with broker_lifespan(broker):
-        yield
+  async with broker_lifespan(broker):
+    yield
 ```
 
 For a raw ASGI application, wrap its lifespan scope:
 
 ```python
-from pymq.integrations.asgi import ASGIBrokerMiddleware
+from broka.integrations.asgi import ASGIBrokerMiddleware
 
 application = ASGIBrokerMiddleware(application, broker)
 ```
@@ -44,8 +44,8 @@ dependency.
 ```python
 from fastapi import Depends, FastAPI
 
-from pymq import Broker
-from pymq.integrations.fastapi import dependency, lifespan
+from broka import Broker
+from broka.integrations.fastapi import dependency, lifespan
 
 broker = Broker.from_config({"engine": "memory"})
 app = FastAPI(lifespan=lifespan(broker))
@@ -53,7 +53,7 @@ app = FastAPI(lifespan=lifespan(broker))
 
 @app.get("/broker/health")
 async def broker_health(selected=Depends(dependency(broker))):
-    return await selected.health()
+  return await selected.health()
 ```
 
 `pyev.integrations.starlette` exports the same `lifespan` and `dependency` helpers. The dependency
@@ -90,13 +90,13 @@ loader.
 Publishing from a database transaction should normally wait for commit:
 
 ```python
-from pymq.integrations.django import publish_on_commit
+from broka.integrations.django import publish_on_commit
 
 
 def create_order(request):
-    with transaction.atomic():
-        order = Order.objects.create(...)
-        publish_on_commit(OrderCreated(order_id=str(order.pk)))
+  with transaction.atomic():
+    order = Order.objects.create(...)
+    publish_on_commit(OrderCreated(order_id=str(order.pk)))
 ```
 
 `publish_on_commit()` calls `transaction.on_commit()`. In an async context it creates a tracked
@@ -118,8 +118,8 @@ Install Celery separately, construct the broker with an external engine when oth
 observe its messages, then register worker signals:
 
 ```python
-from pymq import Broker
-from pymq.integrations.celery import install_worker_hooks
+from broka import Broker
+from broka.integrations.celery import install_worker_hooks
 
 broker = Broker.from_config({"engine": "rabbitmq", "engines": {...}})
 install_worker_hooks(broker)

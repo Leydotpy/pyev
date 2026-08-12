@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from pymq.subscription import SubscriptionOptions
+from broka.subscription import SubscriptionOptions
 
 
 def test_subscription_capacity_is_positive_and_explicit() -> None:

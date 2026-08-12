@@ -3,14 +3,14 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pymq"
+name = "broka"
 version = "0.0.1"
 description = "A typed, asynchronous, transport-agnostic message broker for Python applications"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "pyev contributors" }]
+authors = [{ name = "broka contributors" }]
 keywords = ["asyncio", "events", "message-broker", "pubsub", "rpc"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -55,22 +55,22 @@ all = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/pyev-dev/pyev#readme"
-Issues = "https://github.com/pyev-dev/pyev/issues"
-Source = "https://github.com/pyev-dev/pyev"
+Documentation = "https://github.com/broka-dev/broka#readme"
+Issues = "https://github.com/broka-dev/broka/issues"
+Source = "https://github.com/broka-dev/broka"
 
-[project.entry-points."pyev.engines"]
-local = "pyev.engines.local:LocalEngine"
-memory = "pyev.engines.memory:MemoryEngine"
-redis = "pyev.engines.redis:RedisEngine"
-rabbitmq = "pyev.engines.rabbitmq:RabbitMQEngine"
-kafka = "pyev.engines.kafka:KafkaEngine"
+[project.entry-points."broka.engines"]
+local = "broka.engines.local:LocalEngine"
+memory = "broka.engines.memory:MemoryEngine"
+redis = "broka.engines.redis:RedisEngine"
+rabbitmq = "broka.engines.rabbitmq:RabbitMQEngine"
+kafka = "broka.engines.kafka:KafkaEngine"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-pyev = ["py.typed"]
+broka = ["py.typed"]
 
 [tool.pytest.ini_options]
 addopts = "--strict-config --strict-markers -ra"
@@ -83,16 +83,16 @@ markers = [
 
 [tool.coverage.run]
 branch = true
-source = ["pyev"]
+source = ["broka"]
 # Optional transport/framework adapters are covered by their focused and
 # service-backed matrices; the dependency-free CI gate measures the core.
 omit = [
-  "src/pyev/engines/redis.py",
-  "src/pyev/engines/rabbitmq.py",
-  "src/pyev/engines/kafka.py",
-  "src/pyev/integrations/django/*",
-  "src/pyev/integrations/celery.py",
-  "src/pyev/serialization/msgpack.py",
+  "src/broka/engines/redis.py",
+  "src/broka/engines/rabbitmq.py",
+  "src/broka/engines/kafka.py",
+  "src/broka/integrations/django/*",
+  "src/broka/integrations/celery.py",
+  "src/broka/serialization/msgpack.py",
 ]
 
 [tool.coverage.report]
@@ -121,15 +121,15 @@ ignore = [
 [tool.mypy]
 python_version = "3.12"
 strict = true
-packages = ["pyev"]
+packages = ["broka"]
 warn_unreachable = true
 show_error_codes = true
 
 [[tool.mypy.overrides]]
 module = [
-  "pyev.engines.kafka",
-  "pyev.engines.rabbitmq",
-  "pyev.integrations.celery",
-  "pyev.integrations.django.*",
+  "broka.engines.kafka",
+  "broka.engines.rabbitmq",
+  "broka.integrations.celery",
+  "broka.integrations.django.*",
 ]
 disable_error_code = ["import-not-found", "import-untyped", "misc", "untyped-decorator"]

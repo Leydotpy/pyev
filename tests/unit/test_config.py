@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from pymq.config import BrokerConfig, ConfigLoader, FrozenMapping, SecretValue, environment_config
-from pymq.exceptions import ConfigurationError
+from broka.config import BrokerConfig, ConfigLoader, FrozenMapping, SecretValue, environment_config
+from broka.exceptions import ConfigurationError
 
 
 def test_configuration_precedence_is_deterministic(tmp_path: Path) -> None:

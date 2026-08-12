@@ -4,8 +4,8 @@ from dataclasses import dataclass
 
 import pytest
 
-from pymq.event import EventRegistry, event, get_event_metadata
-from pymq.exceptions import (
+from broka.event import EventRegistry, event, get_event_metadata
+from broka.exceptions import (
     DuplicateRegistrationError,
     EventRegistrationError,
     MessageValidationError,

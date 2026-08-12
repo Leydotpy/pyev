@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from importlib.metadata import EntryPoint, EntryPoints
 
-from pymq.discovery import discover_engines, iter_entry_points
-from pymq.engines.local import LocalEngine
-from pymq.plugins import PluginGroups, PluginRegistry, register_discovered_plugins
-from pymq.registry import EngineRegistry
+from broka.discovery import discover_engines, iter_entry_points
+from broka.engines.local import LocalEngine
+from broka.plugins import PluginGroups, PluginRegistry, register_discovered_plugins
+from broka.registry import EngineRegistry
 
 
 def _source() -> EntryPoints:

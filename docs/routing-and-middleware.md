@@ -26,7 +26,7 @@ connection.
 ## Destination mapping
 
 ```python
-from pymq.routing import Destination, Router
+from broka.routing import Destination, Router
 
 router = Router()
 router.map_destination(

@@ -8,7 +8,7 @@ from datetime import UTC, datetime, timedelta
 
 import pytest
 
-from pymq.reliability import (
+from broka.reliability import (
     FixedBackoff,
     MemoryOutboxStore,
     OutboxDispatcher,

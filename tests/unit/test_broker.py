@@ -9,16 +9,16 @@ from dataclasses import dataclass
 
 import pytest
 
-from pymq.acknowledgements import AcknowledgementMode
-from pymq.broker import Broker, BrokerState
-from pymq.delivery import Delivery, DeliveryState
-from pymq.engines.local import LocalEngine
-from pymq.engines.memory import MemoryEngine
-from pymq.event import EventRegistry, event
-from pymq.exceptions import RequestTimeoutError
-from pymq.observability.health import HealthStatus
-from pymq.options import BatchPublishOptions, RequestOptions
-from pymq.subscription import SubscriptionOptions
+from broka.acknowledgements import AcknowledgementMode
+from broka.broker import Broker, BrokerState
+from broka.delivery import Delivery, DeliveryState
+from broka.engines.local import LocalEngine
+from broka.engines.memory import MemoryEngine
+from broka.event import EventRegistry, event
+from broka.exceptions import RequestTimeoutError
+from broka.observability.health import HealthStatus
+from broka.options import BatchPublishOptions, RequestOptions
+from broka.subscription import SubscriptionOptions
 
 
 @event("tests.broker.item.created", register=False)

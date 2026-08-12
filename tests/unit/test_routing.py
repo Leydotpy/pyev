@@ -5,8 +5,8 @@ from dataclasses import dataclass
 
 import pytest
 
-from pymq.exceptions import RoutingError
-from pymq.routing import (
+from broka.exceptions import RoutingError
+from broka.routing import (
     Destination,
     DestinationKind,
     HandlerPattern,

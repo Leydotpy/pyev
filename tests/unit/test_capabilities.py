@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from pymq.capabilities import Capability, CapabilitySet, CapabilitySpec
-from pymq.exceptions import UnsupportedCapabilityError
+from broka.capabilities import Capability, CapabilitySet, CapabilitySpec
+from broka.exceptions import UnsupportedCapabilityError
 
 
 def test_capability_set_supports_attributes_and_immutable_updates() -> None:

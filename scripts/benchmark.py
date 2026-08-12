@@ -10,7 +10,7 @@ import statistics
 import time
 from collections.abc import Sequence
 
-from pymq import Broker, Delivery
+from broka import Broker, Delivery
 
 
 async def _run_once(engine: str, messages: int, payload_bytes: int) -> float:

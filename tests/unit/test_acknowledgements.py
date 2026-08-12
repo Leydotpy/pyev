@@ -6,12 +6,12 @@ from collections.abc import Awaitable, Callable
 
 import pytest
 
-from pymq.acknowledgements import (
+from broka.acknowledgements import (
     BaseAcknowledgementAdapter,
     CallbackAcknowledgementAdapter,
     NoOpAcknowledgementAdapter,
 )
-from pymq.exceptions import UnsupportedCapabilityError
+from broka.exceptions import UnsupportedCapabilityError
 
 
 @pytest.mark.parametrize(

@@ -5,9 +5,9 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pymq.envelope import Envelope
-from pymq.event import EventRegistry, event
-from pymq.exceptions import MessageValidationError, SerializationError
+from broka.envelope import Envelope
+from broka.event import EventRegistry, event
+from broka.exceptions import MessageValidationError, SerializationError
 
 
 def test_envelope_message_and_wire_round_trip() -> None:

@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pymq.integrations.asgi import broker_lifespan
-from pymq.integrations.cli import serve_until_stopped
+from broka.integrations.asgi import broker_lifespan
+from broka.integrations.cli import serve_until_stopped
 
 
 class LifecycleProbe:
@@ -43,7 +43,7 @@ async def test_cli_helper_accepts_injected_stop_event() -> None:
 
 def test_celery_hook_installation_is_idempotent() -> None:
     pytest.importorskip("celery")
-    from pymq.integrations.celery import install_worker_hooks, uninstall_worker_hooks
+    from broka.integrations.celery import install_worker_hooks, uninstall_worker_hooks
 
     probe = LifecycleProbe()
     first = install_worker_hooks(probe)

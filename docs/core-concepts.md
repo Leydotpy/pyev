@@ -52,7 +52,7 @@ optimizations without bloating the minimum SPI.
 ordering is per partition, for example—so a boolean cannot overstate semantics.
 
 ```python
-from pymq import Capability
+from broka import Capability
 
 if broker.capabilities.supports(Capability.CONSUMER_GROUPS):
     ...

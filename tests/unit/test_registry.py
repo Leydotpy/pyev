@@ -4,9 +4,9 @@ from collections.abc import Mapping
 
 import pytest
 
-from pymq.capabilities import CapabilitySet
-from pymq.config import BrokerConfig
-from pymq.engines.base import (
+from broka.capabilities import CapabilitySet
+from broka.config import BrokerConfig
+from broka.engines.base import (
     Availability,
     BaseEngine,
     EngineConsumer,
@@ -16,8 +16,8 @@ from pymq.engines.base import (
     EnginePublishResult,
     EngineSubscription,
 )
-from pymq.exceptions import DuplicateRegistrationError, EngineUnavailableError
-from pymq.registry import EngineRegistry, create_default_registry, default_engine_registry
+from broka.exceptions import DuplicateRegistrationError, EngineUnavailableError
+from broka.registry import EngineRegistry, create_default_registry, default_engine_registry
 
 
 class SampleEngine(BaseEngine):

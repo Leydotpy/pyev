@@ -48,20 +48,20 @@ The adapters retain transport semantics:
 `RetryManager` runs any zero-argument async operation under a `RetryPolicy`:
 
 ```python
-from pymq.reliability import FixedBackoff, RetryContext, RetryManager, RetryPolicy
+from broka.reliability import FixedBackoff, RetryContext, RetryManager, RetryPolicy
 
 policy = RetryPolicy(
-    name="billing-publish",
-    max_attempts=5,
-    max_elapsed_time=20,
-    attempt_timeout=3,
-    backoff=FixedBackoff(0.5),
+  name="billing-publish",
+  max_attempts=5,
+  max_elapsed_time=20,
+  attempt_timeout=3,
+  backoff=FixedBackoff(0.5),
 )
 
 result = await RetryManager().run(
-    send_once,
-    policy,
-    context=RetryContext("publish", {"engine": "rabbitmq"}),
+  send_once,
+  policy,
+  context=RetryContext("publish", {"engine": "rabbitmq"}),
 )
 ```
 
@@ -111,15 +111,15 @@ thresholds, an optional sliding failure-rate window, a cooldown, bounded half-op
 success threshold, excluded exception types, manual `trip()`, and manual `reset()`.
 
 ```python
-from pymq.reliability import CircuitBreaker, CircuitBreakerConfig
+from broka.reliability import CircuitBreaker, CircuitBreakerConfig
 
 breaker = CircuitBreaker(
-    "payments-api",
-    CircuitBreakerConfig(
-        failure_threshold=5,
-        recovery_timeout=30,
-        half_open_max_calls=2,
-    ),
+  "payments-api",
+  CircuitBreakerConfig(
+    failure_threshold=5,
+    recovery_timeout=30,
+    half_open_max_calls=2,
+  ),
 )
 
 response = await breaker.call(call_payments)
@@ -136,18 +136,18 @@ schema metadata. Credential-like headers, URLs, error messages, and tracebacks a
 persistence. Decoded payload persistence is disabled by default.
 
 ```python
-from pymq.deadletter import DeadLetterContext, DeadLetterManager, MemoryDeadLetterStore
+from broka.deadletter import DeadLetterContext, DeadLetterManager, MemoryDeadLetterStore
 
 dead_letters = DeadLetterManager(MemoryDeadLetterStore())
 record = await dead_letters.dead_letter(
-    envelope,
-    error,
-    context=DeadLetterContext(
-        route="orders.created",
-        destination="company-orders",
-        engine="kafka",
-        consumer="billing-v2",
-    ),
+  envelope,
+  error,
+  context=DeadLetterContext(
+    route="orders.created",
+    destination="company-orders",
+    engine="kafka",
+    consumer="billing-v2",
+  ),
 )
 ```
 

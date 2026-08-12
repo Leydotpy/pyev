@@ -30,19 +30,19 @@ from django.core.management import call_command
 from django.db import connection, transaction
 from django.test import override_settings
 
-from pymq.broker import Broker
-from pymq.envelope import Envelope
-from pymq.integrations.django import clear_broker, publish_on_commit
-from pymq.integrations.django.asgi import DjangoBrokerASGI
-from pymq.integrations.django.checks import _configuration_check
-from pymq.integrations.django.config import DjangoSettingsProvider
-from pymq.integrations.django.models import AbstractOutboxRecord
-from pymq.integrations.django.outbox import (
+from broka.broker import Broker
+from broka.envelope import Envelope
+from broka.integrations.django import clear_broker, publish_on_commit
+from broka.integrations.django.asgi import DjangoBrokerASGI
+from broka.integrations.django.checks import _configuration_check
+from broka.integrations.django.config import DjangoSettingsProvider
+from broka.integrations.django.models import AbstractOutboxRecord
+from broka.integrations.django.outbox import (
     DjangoModelOutboxStore,
     EnvelopeOutboxCodec,
     configure_outbox_store,
 )
-from pymq.reliability.outbox import MemoryOutboxStore, OutboxMessage
+from broka.reliability.outbox import MemoryOutboxStore, OutboxMessage
 
 
 class RecordingPublisher:

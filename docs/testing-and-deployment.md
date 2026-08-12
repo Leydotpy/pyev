@@ -25,21 +25,21 @@ import asyncio
 
 import pytest
 
-from pymq import Broker
+from broka import Broker
 
 
 @pytest.mark.asyncio
 async def test_order_handler() -> None:
-    received = asyncio.Event()
+  received = asyncio.Event()
 
-    async def handle(delivery) -> None:
-        assert delivery.message.order_id == "A-42"
-        received.set()
+  async def handle(delivery) -> None:
+    assert delivery.message.order_id == "A-42"
+    received.set()
 
-    async with Broker.from_config({"engine": "memory"}) as broker:
-        await broker.subscribe("orders.*", handle)
-        await broker.publish(OrderCreated("A-42"))
-        await asyncio.wait_for(received.wait(), timeout=1)
+  async with Broker.from_config({"engine": "memory"}) as broker:
+    await broker.subscribe("orders.*", handle)
+    await broker.publish(OrderCreated("A-42"))
+    await asyncio.wait_for(received.wait(), timeout=1)
 ```
 
 Use `local` when handler execution should finish inside `publish()`. Use `memory` when a bounded
@@ -61,15 +61,15 @@ network reconnects, or a remote broker's real delivery semantics.
 - `eventually()`, a bounded async predicate assertion.
 
 ```python
-from pymq.reliability import FixedBackoff, RetryManager, RetryPolicy
-from pymq.testing import DeterministicRetryScheduler
+from broka.reliability import FixedBackoff, RetryManager, RetryPolicy
+from broka.testing import DeterministicRetryScheduler
 
 scheduler = DeterministicRetryScheduler()
 manager = RetryManager(sleep=scheduler.sleep, clock=scheduler.clock)
 
 await manager.run(
-    operation,
-    RetryPolicy(max_attempts=3, backoff=FixedBackoff(2)),
+  operation,
+  RetryPolicy(max_attempts=3, backoff=FixedBackoff(2)),
 )
 assert scheduler.delays == [2, 2]
 ```

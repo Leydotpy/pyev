@@ -6,14 +6,14 @@ import asyncio
 
 import pytest
 
-from pymq.capabilities import Capability
-from pymq.engines.base import (
+from broka.capabilities import Capability
+from broka.engines.base import (
     EngineIncomingMessage,
     EnginePublishContext,
     EngineSubscription,
 )
-from pymq.engines.local import LocalEngine
-from pymq.engines.memory import MemoryBackpressureError, MemoryEngine
+from broka.engines.local import LocalEngine
+from broka.engines.memory import MemoryBackpressureError, MemoryEngine
 
 
 def _context(message_id: str) -> EnginePublishContext:

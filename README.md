@@ -9,27 +9,27 @@ business logic.
 import asyncio
 from dataclasses import dataclass
 
-from pymq import Broker, Delivery, event
+from broka import Broker, Delivery, event
 
 
 @event("orders.created", version=1)
 @dataclass(frozen=True, slots=True)
 class OrderCreated:
-    order_id: str
-    total: int
+  order_id: str
+  total: int
 
 
 async def main() -> None:
-    received = asyncio.Event()
+  received = asyncio.Event()
 
-    async def handle(delivery: Delivery[OrderCreated]) -> None:
-        print(delivery.message.order_id)
-        received.set()
+  async def handle(delivery: Delivery[OrderCreated]) -> None:
+    print(delivery.message.order_id)
+    received.set()
 
-    async with Broker.from_config({"engine": "memory"}) as broker:
-        await broker.subscribe("orders.*", handle)
-        await broker.publish(OrderCreated(order_id="A-100", total=4200))
-        await asyncio.wait_for(received.wait(), timeout=1)
+  async with Broker.from_config({"engine": "memory"}) as broker:
+    await broker.subscribe("orders.*", handle)
+    await broker.publish(OrderCreated(order_id="A-100", total=4200))
+    await asyncio.wait_for(received.wait(), timeout=1)
 
 
 asyncio.run(main())

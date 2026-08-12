@@ -21,14 +21,14 @@ are the smallest dependency-free option; attrs and Pydantic-compatible models ar
 
 ```python
 from dataclasses import dataclass
-from pymq import event
+from broka import event
 
 
 @event("accounts.user.invited", version=1)
 @dataclass(frozen=True, slots=True)
 class UserInvited:
-    user_id: str
-    email: str
+  user_id: str
+  email: str
 ```
 
 Names are routing identities. Renaming the Python class does not have to break consumers as long as
@@ -39,17 +39,17 @@ the event name and version remain stable.
 Handlers are asynchronous and receive a framework `Delivery`, never a Redis, AMQP, or Kafka object.
 
 ```python
-from pymq import Broker, Delivery
+from broka import Broker, Delivery
 
 
 async def send_invitation(delivery: Delivery[UserInvited]) -> None:
-    event = delivery.message
-    await invitation_service.send(event.email)
+  event = delivery.message
+  await invitation_service.send(event.email)
 
 
 async with Broker.from_config({"engine": "memory"}) as broker:
-    subscription = await broker.subscribe("accounts.user.*", send_invitation)
-    result = await broker.publish(UserInvited("u-42", "person@example.com"))
+  subscription = await broker.subscribe("accounts.user.*", send_invitation)
+  result = await broker.publish(UserInvited("u-42", "person@example.com"))
 ```
 
 The broker's context manager calls idempotent `startup()` and `shutdown()`. Explicit lifecycle is

@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pymq.engines.base import EnginePublishContext, EngineSubscription
-from pymq.testing import (
+from broka.engines.base import EnginePublishContext, EngineSubscription
+from broka.testing import (
     DeterministicClock,
     FakeEngine,
     MockPublisher,

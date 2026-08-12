@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from pymq.deadletter import (
+from broka.deadletter import (
     DeadLetterFilter,
     DeadLetterPolicy,
     DeadLetterRecord,
@@ -16,7 +16,7 @@ from pymq.deadletter import (
     ReplayManager,
     ReplayOutcome,
 )
-from pymq.exceptions import DeadLetterError
+from broka.exceptions import DeadLetterError
 
 
 def _record(

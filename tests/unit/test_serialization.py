@@ -4,8 +4,8 @@ import math
 
 import pytest
 
-from pymq.exceptions import SerializationError, UnsafeSerializationError
-from pymq.serialization import (
+from broka.exceptions import SerializationError, UnsafeSerializationError
+from broka.serialization import (
     DeserializationContext,
     JsonSerializer,
     MessagePackSerializer,

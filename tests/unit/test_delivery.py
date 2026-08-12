@@ -4,10 +4,10 @@ from dataclasses import dataclass
 
 import pytest
 
-from pymq.acknowledgements import AcknowledgementMode
-from pymq.delivery import Delivery, DeliveryState
-from pymq.envelope import Envelope
-from pymq.exceptions import AcknowledgementError, InvalidStateTransitionError
+from broka.acknowledgements import AcknowledgementMode
+from broka.delivery import Delivery, DeliveryState
+from broka.envelope import Envelope
+from broka.exceptions import AcknowledgementError, InvalidStateTransitionError
 
 
 @dataclass

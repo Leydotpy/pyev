@@ -4,9 +4,9 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pymq.reliability import MemoryIdempotencyStore, MemoryOutboxStore, OutboxMessage
-from pymq.reliability.outbox import OutboxStatus
-from pymq.testing import DeterministicClock
+from broka.reliability import MemoryIdempotencyStore, MemoryOutboxStore, OutboxMessage
+from broka.reliability.outbox import OutboxStatus
+from broka.testing import DeterministicClock
 
 
 @pytest.mark.asyncio

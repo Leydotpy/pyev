@@ -4,10 +4,10 @@ import asyncio
 
 import pytest
 
-from pymq.connection import ConnectionManager, ConnectionState
-from pymq.exceptions import BrokerConnectionError
-from pymq.reliability import FixedBackoff, RetryManager, RetryPolicy
-from pymq.testing import DeterministicRetryScheduler, FakeEngine
+from broka.connection import ConnectionManager, ConnectionState
+from broka.exceptions import BrokerConnectionError
+from broka.reliability import FixedBackoff, RetryManager, RetryPolicy
+from broka.testing import DeterministicRetryScheduler, FakeEngine
 
 
 def connection_manager(engine: FakeEngine) -> ConnectionManager:
