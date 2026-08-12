@@ -21,7 +21,13 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+    "aio-pika>=10.0.1",
+    "aiokafka>=0.14.0",
+    "django>=6.1",
+    "pyyaml>=6.0.3",
+    "redis>=8.1.0",
+]
 
 [project.optional-dependencies]
 redis = ["redis>=5.0"]
