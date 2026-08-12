@@ -9,9 +9,9 @@ from typing import Any, ClassVar
 
 import pytest
 
-import pyev.config as config_module
-from pyev.broker import Broker, BrokerState
-from pyev.config import (
+import pymq.config as config_module
+from pymq.broker import Broker, BrokerState
+from pymq.config import (
     BrokerConfig,
     ConfigLoader,
     FrozenMapping,
@@ -24,32 +24,32 @@ from pyev.config import (
     redact,
     reveal_secret,
 )
-from pyev.exceptions import (
+from pymq.exceptions import (
     ConfigurationError,
     DuplicateRegistrationError,
     PluginLoadError,
     RegistryError,
     SerializationError,
 )
-from pyev.factory import BrokerFactory
-from pyev.observability.logging import StructuredLogAdapter, get_logger
-from pyev.observability.redaction import (
+from pymq.factory import BrokerFactory
+from pymq.observability.logging import StructuredLogAdapter, get_logger
+from pymq.observability.redaction import (
     REDACTED,
     is_sensitive_key,
     redact_mapping,
     redact_text,
     redact_value,
 )
-from pyev.plugins import (
+from pymq.plugins import (
     PluginGroups,
     PluginRegistry,
     discover_plugins,
     discover_serializer_plugins,
     register_discovered_plugins,
 )
-from pyev.routing import Router
-from pyev.serialization import DeserializationContext, SerializationContext
-from pyev.serialization.registry import SerializerRegistry
+from pymq.routing import Router
+from pymq.serialization import DeserializationContext, SerializationContext
+from pymq.serialization.registry import SerializerRegistry
 
 
 class _Serializer:

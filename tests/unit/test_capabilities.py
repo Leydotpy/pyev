@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from pyev.capabilities import Capability, CapabilitySet, CapabilitySpec
-from pyev.exceptions import UnsupportedCapabilityError
+from pymq.capabilities import Capability, CapabilitySet, CapabilitySpec
+from pymq.exceptions import UnsupportedCapabilityError
 
 
 def test_capability_set_supports_attributes_and_immutable_updates() -> None:

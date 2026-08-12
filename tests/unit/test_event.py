@@ -4,8 +4,8 @@ from dataclasses import dataclass
 
 import pytest
 
-from pyev.event import EventRegistry, event, get_event_metadata
-from pyev.exceptions import (
+from pymq.event import EventRegistry, event, get_event_metadata
+from pymq.exceptions import (
     DuplicateRegistrationError,
     EventRegistrationError,
     MessageValidationError,

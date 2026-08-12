@@ -30,19 +30,19 @@ from django.core.management import call_command
 from django.db import connection, transaction
 from django.test import override_settings
 
-from pyev.broker import Broker
-from pyev.envelope import Envelope
-from pyev.integrations.django import clear_broker, publish_on_commit
-from pyev.integrations.django.asgi import DjangoBrokerASGI
-from pyev.integrations.django.checks import _configuration_check
-from pyev.integrations.django.config import DjangoSettingsProvider
-from pyev.integrations.django.models import AbstractOutboxRecord
-from pyev.integrations.django.outbox import (
+from pymq.broker import Broker
+from pymq.envelope import Envelope
+from pymq.integrations.django import clear_broker, publish_on_commit
+from pymq.integrations.django.asgi import DjangoBrokerASGI
+from pymq.integrations.django.checks import _configuration_check
+from pymq.integrations.django.config import DjangoSettingsProvider
+from pymq.integrations.django.models import AbstractOutboxRecord
+from pymq.integrations.django.outbox import (
     DjangoModelOutboxStore,
     EnvelopeOutboxCodec,
     configure_outbox_store,
 )
-from pyev.reliability.outbox import MemoryOutboxStore, OutboxMessage
+from pymq.reliability.outbox import MemoryOutboxStore, OutboxMessage
 
 
 class RecordingPublisher:

@@ -4,10 +4,10 @@ from dataclasses import dataclass
 
 import pytest
 
-from pyev.acknowledgements import AcknowledgementMode
-from pyev.delivery import Delivery, DeliveryState
-from pyev.envelope import Envelope
-from pyev.exceptions import AcknowledgementError, InvalidStateTransitionError
+from pymq.acknowledgements import AcknowledgementMode
+from pymq.delivery import Delivery, DeliveryState
+from pymq.envelope import Envelope
+from pymq.exceptions import AcknowledgementError, InvalidStateTransitionError
 
 
 @dataclass

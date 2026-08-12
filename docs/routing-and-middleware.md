@@ -26,7 +26,7 @@ connection.
 ## Destination mapping
 
 ```python
-from pyev.routing import Destination, Router
+from pymq.routing import Destination, Router
 
 router = Router()
 router.map_destination(

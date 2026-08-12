@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from importlib.metadata import EntryPoint, EntryPoints
 
-from pyev.discovery import discover_engines, iter_entry_points
-from pyev.engines.local import LocalEngine
-from pyev.plugins import PluginGroups, PluginRegistry, register_discovered_plugins
-from pyev.registry import EngineRegistry
+from pymq.discovery import discover_engines, iter_entry_points
+from pymq.engines.local import LocalEngine
+from pymq.plugins import PluginGroups, PluginRegistry, register_discovered_plugins
+from pymq.registry import EngineRegistry
 
 
 def _source() -> EntryPoints:

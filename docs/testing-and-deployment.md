@@ -25,7 +25,7 @@ import asyncio
 
 import pytest
 
-from pyev import Broker
+from pymq import Broker
 
 
 @pytest.mark.asyncio
@@ -61,8 +61,8 @@ network reconnects, or a remote broker's real delivery semantics.
 - `eventually()`, a bounded async predicate assertion.
 
 ```python
-from pyev.reliability import FixedBackoff, RetryManager, RetryPolicy
-from pyev.testing import DeterministicRetryScheduler
+from pymq.reliability import FixedBackoff, RetryManager, RetryPolicy
+from pymq.testing import DeterministicRetryScheduler
 
 scheduler = DeterministicRetryScheduler()
 manager = RetryManager(sleep=scheduler.sleep, clock=scheduler.clock)

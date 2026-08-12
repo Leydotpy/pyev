@@ -7,15 +7,15 @@ from collections.abc import Callable
 
 import pytest
 
-from pyev.capabilities import Capability
-from pyev.engines.base import (
+from pymq.capabilities import Capability
+from pymq.engines.base import (
     BaseEngine,
     EngineIncomingMessage,
     EnginePublishContext,
     EngineSubscription,
 )
-from pyev.engines.local import LocalEngine
-from pyev.engines.memory import MemoryEngine
+from pymq.engines.local import LocalEngine
+from pymq.engines.memory import MemoryEngine
 
 
 @pytest.fixture(params=[LocalEngine, MemoryEngine], ids=["local", "memory"])

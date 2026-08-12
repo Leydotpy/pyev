@@ -4,9 +4,9 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pyev.reliability import MemoryIdempotencyStore, MemoryOutboxStore, OutboxMessage
-from pyev.reliability.outbox import OutboxStatus
-from pyev.testing import DeterministicClock
+from pymq.reliability import MemoryIdempotencyStore, MemoryOutboxStore, OutboxMessage
+from pymq.reliability.outbox import OutboxStatus
+from pymq.testing import DeterministicClock
 
 
 @pytest.mark.asyncio

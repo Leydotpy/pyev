@@ -6,15 +6,15 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pyev.connection import ConnectionManager, ConnectionState
-from pyev.engines.base import EngineHealth
-from pyev.events.internal import (
+from pymq.connection import ConnectionManager, ConnectionState
+from pymq.engines.base import EngineHealth
+from pymq.events.internal import (
     InternalEventEmitter,
     OperationalEvent,
     OperationalEventName,
 )
-from pyev.exceptions import BrokerConnectionError, LifecycleError
-from pyev.lifecycle import (
+from pymq.exceptions import BrokerConnectionError, LifecycleError
+from pymq.lifecycle import (
     LifecycleManager,
     LifecycleState,
     RestartPolicy,
@@ -22,8 +22,8 @@ from pyev.lifecycle import (
     TaskFailure,
     TaskSupervisor,
 )
-from pyev.reliability import FixedBackoff, RetryManager, RetryPolicy
-from pyev.testing import DeterministicRetryScheduler, FakeEngine
+from pymq.reliability import FixedBackoff, RetryManager, RetryPolicy
+from pymq.testing import DeterministicRetryScheduler, FakeEngine
 
 
 class RecordingEmitter:

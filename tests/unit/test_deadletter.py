@@ -4,7 +4,7 @@ from datetime import timedelta
 
 import pytest
 
-from pyev.deadletter import (
+from pymq.deadletter import (
     DeadLetterContext,
     DeadLetterFilter,
     DeadLetterManager,
@@ -14,9 +14,9 @@ from pyev.deadletter import (
     ReplayManager,
     ReplayOutcome,
 )
-from pyev.envelope import Envelope
-from pyev.exceptions import DeadLetterError
-from pyev.observability import REDACTED
+from pymq.envelope import Envelope
+from pymq.exceptions import DeadLetterError
+from pymq.observability import REDACTED
 
 
 def make_envelope(*, event_type: str = "orders.created") -> Envelope:

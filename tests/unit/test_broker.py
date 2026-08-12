@@ -9,16 +9,16 @@ from dataclasses import dataclass
 
 import pytest
 
-from pyev.acknowledgements import AcknowledgementMode
-from pyev.broker import Broker, BrokerState
-from pyev.delivery import Delivery, DeliveryState
-from pyev.engines.local import LocalEngine
-from pyev.engines.memory import MemoryEngine
-from pyev.event import EventRegistry, event
-from pyev.exceptions import RequestTimeoutError
-from pyev.observability.health import HealthStatus
-from pyev.options import BatchPublishOptions, RequestOptions
-from pyev.subscription import SubscriptionOptions
+from pymq.acknowledgements import AcknowledgementMode
+from pymq.broker import Broker, BrokerState
+from pymq.delivery import Delivery, DeliveryState
+from pymq.engines.local import LocalEngine
+from pymq.engines.memory import MemoryEngine
+from pymq.event import EventRegistry, event
+from pymq.exceptions import RequestTimeoutError
+from pymq.observability.health import HealthStatus
+from pymq.options import BatchPublishOptions, RequestOptions
+from pymq.subscription import SubscriptionOptions
 
 
 @event("tests.broker.item.created", register=False)

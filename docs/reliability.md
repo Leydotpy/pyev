@@ -48,7 +48,7 @@ The adapters retain transport semantics:
 `RetryManager` runs any zero-argument async operation under a `RetryPolicy`:
 
 ```python
-from pyev.reliability import FixedBackoff, RetryContext, RetryManager, RetryPolicy
+from pymq.reliability import FixedBackoff, RetryContext, RetryManager, RetryPolicy
 
 policy = RetryPolicy(
     name="billing-publish",
@@ -111,7 +111,7 @@ thresholds, an optional sliding failure-rate window, a cooldown, bounded half-op
 success threshold, excluded exception types, manual `trip()`, and manual `reset()`.
 
 ```python
-from pyev.reliability import CircuitBreaker, CircuitBreakerConfig
+from pymq.reliability import CircuitBreaker, CircuitBreakerConfig
 
 breaker = CircuitBreaker(
     "payments-api",
@@ -136,7 +136,7 @@ schema metadata. Credential-like headers, URLs, error messages, and tracebacks a
 persistence. Decoded payload persistence is disabled by default.
 
 ```python
-from pyev.deadletter import DeadLetterContext, DeadLetterManager, MemoryDeadLetterStore
+from pymq.deadletter import DeadLetterContext, DeadLetterManager, MemoryDeadLetterStore
 
 dead_letters = DeadLetterManager(MemoryDeadLetterStore())
 record = await dead_letters.dead_letter(

@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pyev.exceptions import MiddlewareError
-from pyev.middleware import InboundMiddlewarePipeline, OutboundMiddlewarePipeline
+from pymq.exceptions import MiddlewareError
+from pymq.middleware import InboundMiddlewarePipeline, OutboundMiddlewarePipeline
 
 
 def test_middleware_order_and_unwind_are_deterministic() -> None:

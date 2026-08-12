@@ -16,33 +16,33 @@ from unittest.mock import patch
 
 import pytest
 
-from pyev.capabilities import Capability
-from pyev.engines.base import (
+from pymq.capabilities import Capability
+from pymq.engines.base import (
     Availability,
     EngineIncomingMessage,
     EnginePublishContext,
 )
-from pyev.engines.kafka import (
+from pymq.engines.kafka import (
     KafkaEngine,
     _KafkaAcknowledgement,
     _KafkaConsumer,
     _topic_pattern,
 )
-from pyev.engines.rabbitmq import (
+from pymq.engines.rabbitmq import (
     RabbitMQEngine,
     _amqp_pattern,
     _rabbit_confirmation_accepted,
     _RabbitAcknowledgement,
     _RabbitConsumer,
 )
-from pyev.engines.redis import (
+from pymq.engines.redis import (
     RedisEngine,
     _decode_stream_entry,
     _parse_xautoclaim,
     _PubSubAcknowledgement,
     _StreamsAcknowledgement,
 )
-from pyev.exceptions import PublishError, UnsupportedCapabilityError
+from pymq.exceptions import PublishError, UnsupportedCapabilityError
 
 
 def test_optional_engine_modules_do_not_import_client_libraries() -> None:

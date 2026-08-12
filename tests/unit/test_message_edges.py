@@ -13,8 +13,8 @@ from uuid import UUID
 
 import pytest
 
-from pyev.exceptions import MessageValidationError
-from pyev.message import (
+from pymq.exceptions import MessageValidationError
+from pymq.message import (
     EVENT_NAME_ATTRIBUTE,
     EVENT_VERSION_ATTRIBUTE,
     is_message,

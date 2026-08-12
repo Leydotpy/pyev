@@ -4,8 +4,8 @@ import math
 
 import pytest
 
-from pyev.exceptions import SerializationError, UnsafeSerializationError
-from pyev.serialization import (
+from pymq.exceptions import SerializationError, UnsafeSerializationError
+from pymq.serialization import (
     DeserializationContext,
     JsonSerializer,
     MessagePackSerializer,

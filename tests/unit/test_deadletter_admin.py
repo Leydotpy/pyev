@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from pyev.deadletter import (
+from pymq.deadletter import (
     DeadLetterFilter,
     DeadLetterPolicy,
     DeadLetterRecord,
@@ -16,7 +16,7 @@ from pyev.deadletter import (
     ReplayManager,
     ReplayOutcome,
 )
-from pyev.exceptions import DeadLetterError
+from pymq.exceptions import DeadLetterError
 
 
 def _record(

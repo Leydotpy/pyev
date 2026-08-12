@@ -9,7 +9,7 @@ business logic.
 import asyncio
 from dataclasses import dataclass
 
-from pyev import Broker, Delivery, event
+from pymq import Broker, Delivery, event
 
 
 @event("orders.created", version=1)

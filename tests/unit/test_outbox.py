@@ -8,7 +8,7 @@ from datetime import UTC, datetime, timedelta
 
 import pytest
 
-from pyev.reliability import (
+from pymq.reliability import (
     FixedBackoff,
     MemoryOutboxStore,
     OutboxDispatcher,

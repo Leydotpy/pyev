@@ -9,7 +9,7 @@ from uuid import uuid4
 
 import pytest
 
-from pyev import Broker, Delivery
+from pymq import Broker, Delivery
 
 pytestmark = pytest.mark.integration
 

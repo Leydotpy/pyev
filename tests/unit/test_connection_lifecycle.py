@@ -4,15 +4,15 @@ import asyncio
 
 import pytest
 
-from pyev.exceptions import LifecycleError
-from pyev.lifecycle import (
+from pymq.exceptions import LifecycleError
+from pymq.lifecycle import (
     LifecycleManager,
     LifecycleState,
     RestartPolicy,
     SupervisedTaskState,
     TaskSupervisor,
 )
-from pyev.reliability import FixedBackoff
+from pymq.reliability import FixedBackoff
 
 
 @pytest.mark.asyncio

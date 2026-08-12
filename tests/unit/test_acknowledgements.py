@@ -6,12 +6,12 @@ from collections.abc import Awaitable, Callable
 
 import pytest
 
-from pyev.acknowledgements import (
+from pymq.acknowledgements import (
     BaseAcknowledgementAdapter,
     CallbackAcknowledgementAdapter,
     NoOpAcknowledgementAdapter,
 )
-from pyev.exceptions import UnsupportedCapabilityError
+from pymq.exceptions import UnsupportedCapabilityError
 
 
 @pytest.mark.parametrize(

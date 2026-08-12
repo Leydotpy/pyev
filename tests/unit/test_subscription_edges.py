@@ -7,9 +7,9 @@ from typing import Any
 
 import pytest
 
-from pyev.delivery import Delivery
-from pyev.exceptions import InvalidStateTransitionError, LifecycleError
-from pyev.subscription import (
+from pymq.delivery import Delivery
+from pymq.exceptions import InvalidStateTransitionError, LifecycleError
+from pymq.subscription import (
     Subscription,
     SubscriptionOptions,
     SubscriptionState,

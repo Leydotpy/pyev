@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from pyev.reliability.backoff import (
+from pymq.reliability.backoff import (
     DecorrelatedJitterBackoff,
     EqualJitterBackoff,
     ExponentialBackoff,

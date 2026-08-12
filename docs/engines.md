@@ -150,8 +150,8 @@ processing, and the current broker does not expose a coordinated Kafka transacti
 Implement the minimum `BaseEngine` surface and publish a lazy entry point:
 
 ```python
-from pyev.capabilities import Capability, CapabilitySet
-from pyev.engines.base import BaseEngine
+from pymq.capabilities import Capability, CapabilitySet
+from pymq.engines.base import BaseEngine
 
 
 class NatsEngine(BaseEngine):
@@ -163,9 +163,13 @@ class NatsEngine(BaseEngine):
         return CapabilitySet.of(Capability.PUBLISH_SUBSCRIBE)
 
     async def connect(self) -> None: ...
+
     async def disconnect(self) -> None: ...
+
     async def publish(self, destination, payload, context): ...
+
     async def create_consumer(self, subscription, callback): ...
+
     async def healthcheck(self): ...
 ```
 

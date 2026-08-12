@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pyev.engines.base import EnginePublishContext, EngineSubscription
-from pyev.testing import (
+from pymq.engines.base import EnginePublishContext, EngineSubscription
+from pymq.testing import (
     DeterministicClock,
     FakeEngine,
     MockPublisher,

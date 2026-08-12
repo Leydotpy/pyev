@@ -4,9 +4,9 @@ from collections.abc import Mapping
 
 import pytest
 
-from pyev.capabilities import CapabilitySet
-from pyev.config import BrokerConfig
-from pyev.engines.base import (
+from pymq.capabilities import CapabilitySet
+from pymq.config import BrokerConfig
+from pymq.engines.base import (
     Availability,
     BaseEngine,
     EngineConsumer,
@@ -16,8 +16,8 @@ from pyev.engines.base import (
     EnginePublishResult,
     EngineSubscription,
 )
-from pyev.exceptions import DuplicateRegistrationError, EngineUnavailableError
-from pyev.registry import EngineRegistry, create_default_registry, default_engine_registry
+from pymq.exceptions import DuplicateRegistrationError, EngineUnavailableError
+from pymq.registry import EngineRegistry, create_default_registry, default_engine_registry
 
 
 class SampleEngine(BaseEngine):

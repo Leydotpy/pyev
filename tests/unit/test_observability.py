@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from pyev.events import CriticalListenerError, InternalEventEmitter
-from pyev.observability import (
+from pymq.events import CriticalListenerError, InternalEventEmitter
+from pymq.observability import (
     REDACTED,
     ComponentHealth,
     HealthRegistry,

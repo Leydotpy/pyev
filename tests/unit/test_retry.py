@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from pyev.exceptions import RetryExhaustedError
-from pyev.reliability import (
+from pymq.exceptions import RetryExhaustedError
+from pymq.reliability import (
     FixedBackoff,
     RetryBudget,
     RetryContext,
@@ -13,7 +13,7 @@ from pyev.reliability import (
     RetryPolicy,
     TypeExceptionClassifier,
 )
-from pyev.testing import DeterministicRetryScheduler
+from pymq.testing import DeterministicRetryScheduler
 
 
 @pytest.mark.asyncio

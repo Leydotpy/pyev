@@ -21,7 +21,7 @@ are the smallest dependency-free option; attrs and Pydantic-compatible models ar
 
 ```python
 from dataclasses import dataclass
-from pyev import event
+from pymq import event
 
 
 @event("accounts.user.invited", version=1)
@@ -39,7 +39,7 @@ the event name and version remain stable.
 Handlers are asynchronous and receive a framework `Delivery`, never a Redis, AMQP, or Kafka object.
 
 ```python
-from pyev import Broker, Delivery
+from pymq import Broker, Delivery
 
 
 async def send_invitation(delivery: Delivery[UserInvited]) -> None:

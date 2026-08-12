@@ -5,8 +5,8 @@ from dataclasses import dataclass
 
 import pytest
 
-from pyev.exceptions import RoutingError
-from pyev.routing import (
+from pymq.exceptions import RoutingError
+from pymq.routing import (
     Destination,
     DestinationKind,
     HandlerPattern,

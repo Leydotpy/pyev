@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import pytest
 
-from pyev.exceptions import CircuitOpenError
-from pyev.reliability import CircuitBreaker, CircuitBreakerConfig, CircuitState
-from pyev.testing import DeterministicClock
+from pymq.exceptions import CircuitOpenError
+from pymq.reliability import CircuitBreaker, CircuitBreakerConfig, CircuitState
+from pymq.testing import DeterministicClock
 
 
 @pytest.mark.asyncio

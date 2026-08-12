@@ -72,7 +72,7 @@ Correlation and causation IDs remain separate envelope fields; trace context doe
 either.
 
 ```python
-from pyev.observability import InMemoryTracer, SpanKind, TracePropagator
+from pymq.observability import InMemoryTracer, SpanKind, TracePropagator
 
 tracer = InMemoryTracer()
 async with tracer.start_as_current_span("publish", kind=SpanKind.PRODUCER) as span:

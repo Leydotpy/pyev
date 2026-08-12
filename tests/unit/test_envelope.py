@@ -5,9 +5,9 @@ from datetime import UTC, datetime
 
 import pytest
 
-from pyev.envelope import Envelope
-from pyev.event import EventRegistry, event
-from pyev.exceptions import MessageValidationError, SerializationError
+from pymq.envelope import Envelope
+from pymq.event import EventRegistry, event
+from pymq.exceptions import MessageValidationError, SerializationError
 
 
 def test_envelope_message_and_wire_round_trip() -> None:

@@ -10,8 +10,8 @@ workers, Django management commands, or a separate web process.
 `broker_lifespan()` is an async context manager accepted by frameworks with a lifespan hook:
 
 ```python
-from pyev import Broker
-from pyev.integrations.asgi import broker_lifespan
+from pymq import Broker
+from pymq.integrations.asgi import broker_lifespan
 
 broker = Broker.from_config({"engine": "redis"})
 
@@ -24,7 +24,7 @@ async def application_lifespan():
 For a raw ASGI application, wrap its lifespan scope:
 
 ```python
-from pyev.integrations.asgi import ASGIBrokerMiddleware
+from pymq.integrations.asgi import ASGIBrokerMiddleware
 
 application = ASGIBrokerMiddleware(application, broker)
 ```
@@ -44,8 +44,8 @@ dependency.
 ```python
 from fastapi import Depends, FastAPI
 
-from pyev import Broker
-from pyev.integrations.fastapi import dependency, lifespan
+from pymq import Broker
+from pymq.integrations.fastapi import dependency, lifespan
 
 broker = Broker.from_config({"engine": "memory"})
 app = FastAPI(lifespan=lifespan(broker))
@@ -90,7 +90,7 @@ loader.
 Publishing from a database transaction should normally wait for commit:
 
 ```python
-from pyev.integrations.django import publish_on_commit
+from pymq.integrations.django import publish_on_commit
 
 
 def create_order(request):
@@ -118,8 +118,8 @@ Install Celery separately, construct the broker with an external engine when oth
 observe its messages, then register worker signals:
 
 ```python
-from pyev import Broker
-from pyev.integrations.celery import install_worker_hooks
+from pymq import Broker
+from pymq.integrations.celery import install_worker_hooks
 
 broker = Broker.from_config({"engine": "rabbitmq", "engines": {...}})
 install_worker_hooks(broker)

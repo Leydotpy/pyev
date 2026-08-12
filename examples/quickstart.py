@@ -3,7 +3,7 @@
 import asyncio
 from dataclasses import dataclass
 
-from pyev import Broker, Delivery, event
+from pymq import Broker, Delivery, event
 
 
 @event("example.greeting.created", version=1)
