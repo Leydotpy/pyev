@@ -56,7 +56,7 @@ async def broker_health(selected=Depends(dependency(broker))):
   return await selected.health()
 ```
 
-`pyev.integrations.starlette` exports the same `lifespan` and `dependency` helpers. The dependency
+`broka.integrations.starlette` exports the same `lifespan` and `dependency` helpers. The dependency
 returns the process-local broker; it does not start or stop it per request.
 
 Litestar, Quart, and other ASGI frameworks can use `broker_lifespan()` directly. The current release
@@ -69,7 +69,7 @@ Install the Django extra and add the optional app when system checks are desired
 ```python
 INSTALLED_APPS = [
     # ...
-    "pyev.integrations.django",
+    "broka.integrations.django",
 ]
 
 PYEV = {
