@@ -278,9 +278,9 @@ class EngineRegistry:
 
 
 _OPTIONAL_ENGINES: Final[tuple[tuple[str, str, str, int], ...]] = (
-    ("redis", "pyev.engines.redis", "RedisEngine", 50),
-    ("rabbitmq", "pyev.engines.rabbitmq", "RabbitMQEngine", 40),
-    ("kafka", "pyev.engines.kafka", "KafkaEngine", 30),
+    ("redis", "broka.engines.redis", "RedisEngine", 50),
+    ("rabbitmq", "broka.engines.rabbitmq", "RabbitMQEngine", 40),
+    ("kafka", "broka.engines.kafka", "KafkaEngine", 30),
 )
 
 
