@@ -16,7 +16,7 @@ def _source() -> EntryPoints:
                 value="broka.engines.local:LocalEngine",
                 group="broka.engines",
             ),
-            EntryPoint(name="text", value="builtins:str", group="pyev.serializers"),
+            EntryPoint(name="text", value="builtins:str", group="broka.serializers"),
         )
     )
 
