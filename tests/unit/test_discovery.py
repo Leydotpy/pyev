@@ -13,10 +13,10 @@ def _source() -> EntryPoints:
         (
             EntryPoint(
                 name="local-plugin",
-                value="pyev.engines.local:LocalEngine",
-                group="pyev.engines",
+                value="broka.engines.local:LocalEngine",
+                group="broka.engines",
             ),
-            EntryPoint(name="text", value="builtins:str", group="pyev.serializers"),
+            EntryPoint(name="text", value="builtins:str", group="broka.serializers"),
         )
     )
 
@@ -25,7 +25,7 @@ def test_entry_point_inspection_is_grouped_and_deterministic() -> None:
     descriptors = iter_entry_points(PluginGroups.ENGINES, source=_source)
 
     assert [(item.name, item.value) for item in descriptors] == [
-        ("local-plugin", "pyev.engines.local:LocalEngine")
+        ("local-plugin", "broka.engines.local:LocalEngine")
     ]
 
 

@@ -8,7 +8,7 @@ from django.apps import AppConfig
 class PyevConfig(AppConfig):
     """Register checks without opening broker connections during app import."""
 
-    name = "pyev.integrations.django"
+    name = "broka.integrations.django"
     label = "pyev"
     verbose_name = "pyev message broker"
     default_auto_field = "django.db.models.BigAutoField"

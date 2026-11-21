@@ -53,9 +53,9 @@ def test_optional_engine_modules_do_not_import_client_libraries() -> None:
     )
     code = """
 import sys
-import pyev.engines.redis
-import pyev.engines.rabbitmq
-import pyev.engines.kafka
+import broka.engines.redis
+import broka.engines.rabbitmq
+import broka.engines.kafka
 assert 'redis' not in sys.modules
 assert 'aio_pika' not in sys.modules
 assert 'aiokafka' not in sys.modules

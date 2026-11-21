@@ -13,14 +13,14 @@ from broka.exceptions import DuplicateRegistrationError, PluginLoadError, Regist
 class PluginGroups:
     """Canonical entry-point group names for public extension surfaces."""
 
-    ENGINES = "pyev.engines"
-    SERIALIZERS = "pyev.serializers"
-    MIDDLEWARE = "pyev.middleware"
-    ROUTERS = "pyev.routers"
-    DEADLETTER_STORES = "pyev.deadletter_stores"
-    CONFIG_PROVIDERS = "pyev.config_providers"
-    METRICS_EXPORTERS = "pyev.metrics_exporters"
-    TRACING_PROVIDERS = "pyev.tracing_providers"
+    ENGINES = "broka.engines"
+    SERIALIZERS = "broka.serializers"
+    MIDDLEWARE = "broka.middleware"
+    ROUTERS = "broka.routers"
+    DEADLETTER_STORES = "broka.deadletter_stores"
+    CONFIG_PROVIDERS = "broka.config_providers"
+    METRICS_EXPORTERS = "broka.metrics_exporters"
+    TRACING_PROVIDERS = "broka.tracing_providers"
 
 
 @dataclass(slots=True)

@@ -97,7 +97,7 @@ def load_entry_point(descriptor: EntryPointDescriptor) -> object:
 def discover_engines(
     registry: EngineRegistry,
     *,
-    group: str = "pyev.engines",
+    group: str = "broka.engines",
     source: EntryPointSource | None = None,
     ignore_registered: bool = False,
 ) -> tuple[str, ...]:
